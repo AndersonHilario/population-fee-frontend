@@ -1,0 +1,52 @@
+<p-table [value]="states" dataKey="name">
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem"></th>
+      <th>Name</th>
+      <th>Total Population</th>
+      <th>Total Fee</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-state let-expanded="expanded">
+    <tr>
+      <td>
+        <button type="button" pButton [pRowToggler]="state" class="p-button-text p-button-rounded p-button-plain"
+                [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+      </td>
+      <td>{{state.name}}</td>
+      <td>{{state.totalPopulation}}</td>
+      <td>{{state.totalFee | currency:'BRL'}}</td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="rowexpansion" let-state>
+    <tr>
+      <td colspan="7">
+        <div class="p-p-3">
+          <p-table [value]="state.cities" dataKey="id">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Name</th>
+                <th>Population</th>
+                <th style="width: 4rem"></th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-city>
+              <tr>
+                <td>{{city.name}}</td>
+                <td>{{city.population}}</td>
+                <td>
+                  <p-button type="button" icon="pi pi-search"></p-button>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+              <tr>
+                <td colspan="6">Tem nada</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

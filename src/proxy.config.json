@@ -1,0 +1,7 @@
+{
+  "/state": {
+    "target": "https://population-fee-api.herokuapp.com/",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
