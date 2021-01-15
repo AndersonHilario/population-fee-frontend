@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
-import {State} from '../../../model/state';
 import {StateRowListService} from './state-row-list.service';
+import {State} from '../../model/state';
 
 @Component({
   selector: 'app-state-row-list',
-  templateUrl: './state-row-list.component.html',
+  templateUrl: 'state-row-list.component.html',
   animations: [
     trigger('rowExpansionTrigger', [
       state('void', style({
@@ -27,6 +27,16 @@ export class StateRowListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.findStates();
+  }
+
+  deleteCity(cityId: string): void {
+    this.stateRowListService.deleteCity(cityId).subscribe(res => {
+      this.findStates();
+    });
+  }
+
+  findStates(): void {
     this.stateRowListService.getStates().subscribe(states => {
       this.states = states;
     });

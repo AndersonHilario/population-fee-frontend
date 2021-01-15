@@ -3,5 +3,11 @@
     "target": "https://population-fee-api.herokuapp.com/",
     "secure": true,
     "changeOrigin": true
+  },
+
+  "/city": {
+    "target": "https://population-fee-api.herokuapp.com/city",
+    "secure": true,
+    "changeOrigin": true
   }
 }

@@ -35,7 +35,7 @@
                 <td>{{city.name}}</td>
                 <td>{{city.population}}</td>
                 <td>
-                  <p-button type="button" icon="pi pi-search"></p-button>
+                  <p-button (onClick)="deleteCity(city.id)" type="button" icon="pi pi-trash"></p-button>
                 </td>
               </tr>
             </ng-template>
